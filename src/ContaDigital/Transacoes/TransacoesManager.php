@@ -12,13 +12,13 @@ class TransacoesManager
      * Credencial da Transacao
      * @var
      */
-    private $credencial_transacao;
+    private $credencial_conta;
 
     /**
      * Chave da Transacao
      * @var
      */
-    private $chave_transacao;
+    private $chave_conta;
     
     /**
      * TransacoesManager constructor
@@ -27,7 +27,13 @@ class TransacoesManager
      */
     public function __construct($credencial, $chave)
     {
-        $this->credencial_transacao = $credencial;
-        $this->chave_transacao = $chave;
+        $this->credencial_conta = $credencial;
+        $this->chave_conta = $chave;
+    }
+    
+    public function pagarDespesaCodigoDeBarras()
+    {
+        $transacao = new Transacoes($this->credencial_conta, $this->chave_conta);
+        
     }
 }
